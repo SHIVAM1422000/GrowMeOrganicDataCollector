@@ -10,8 +10,8 @@ import Paper from "@mui/material/Paper";
 import { useEffect, useState } from "react";
 import { getData } from "../../utils/fetchUser";
 import { useNavigate } from "react-router-dom";
-import { ContactEmergency } from "@mui/icons-material";
-import { redirect } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+
 
 interface UserDetailsInterface {
   userId: number;
@@ -75,6 +75,18 @@ export default function CustomizedTables() {
       <h1 style={{ textAlign: "center", marginBottom: "20px" }}>
         User Details
       </h1>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 700 }} aria-label="customized table">
           <TableHead>
