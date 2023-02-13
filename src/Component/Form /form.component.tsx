@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import { useState, useEffect } from 'react';
 import "./form.styles.css";
 import { useNavigate } from 'react-router-dom';
+import Alert from '@mui/material/Alert';
 
 export interface UserDetailsInterface {
   name: string;
@@ -28,7 +29,6 @@ const FormComponent: React.FC = (): JSX.Element => {
 
   const onSubmitHandler = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // console.log("Form Submitted With value : ", userDetails);
     localStorage.setItem('userDetails',JSON.stringify(userDetails))
     setUserDetails({ name: "", phoneNumber: NaN, email: "" });
     navigate('/display')
@@ -38,6 +38,7 @@ const FormComponent: React.FC = (): JSX.Element => {
   return (
     <div className="formContainer">
       <h1>Please Enter Your Details</h1>
+      {/* <Alert severity="error">This is an error alert — check it out!</Alert> */}
       <form onSubmit={onSubmitHandler}>
         <input
           type="text"
